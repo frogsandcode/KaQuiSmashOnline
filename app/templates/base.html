@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>{{ title }} - KaQuiSlam</title>
+    {% else %}
+    <title>Welcome to KaQuiSlam</title>
+    {% endif %}
+</head>
+<body>
+    <div>KaQuiSlam:
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('slam_kahoot') }}">Slam a Kahoot</a>
+        <a href="">Slam a Quizizz [BROKEN]</a>
+    </div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</body>
+</html>

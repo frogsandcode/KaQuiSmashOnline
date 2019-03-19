@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Slam a Kahoot</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.pin.label }}<br>
+        {{ form.pin(size=32) }}
+        {% for error in form.pin.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.numBots.label }}<br>
+        {{ form.numBots(size=32) }}
+        {% for error in form.pin.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.baseName.label }}<br>
+        {{ form.baseName(size=32) }}
+        {% for error in form.pin.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
